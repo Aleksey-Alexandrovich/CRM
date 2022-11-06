@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+  <title>2 модуль 11 урок</title>
+</head>
+<body>
+	<section class="modal">
+		<div class="container modal__container">
+		<div class="modal__wrapper">
+			<button type="button" class="modal__close" aria-label="Close">
+				<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M2 2L22 22" stroke="#6E6893" stroke-width="3" stroke-linecap="round"/>
+					<path d="M2 22L22 2" stroke="#6E6893" stroke-width="3" stroke-linecap="round"/>
+				</svg>
+			</button>
+			<p class="modal__title">Добавить ТОВАР</p>
+			<form action="https://jsonplaceholder.typicode.com/posts" target="_blank" class="form" method="post">
+				<fieldset class="form__fieldset">
+					<label for="name" class="form__label">Наименование</label>
+					<input type="text" class="form__input" id="name" name="name" required>
+
+					<label for="category" class="form__label">Категория</label>
+					<input type="text" class="form__input" id="category" name="category" required>
+
+					<label for="units" class="form__label">Единицы измерения</label>
+					<input type="text" class="form__input" id="units" name="units" required>
+
+					<label for="discount" class="form__label">Дисконт</label>
+					
+				<div class="form__box">
+					<input type="checkbox" class="form__checkbox" value="Дисконт">
+					<input type="text" class="form__input" name="discount"  id="discount" disabled required>
+				</div>
+
+					<label for="description" class="form__label">Описание</label>
+					<textarea type="text" class="form__input" id="description" rows="6" name="description"></textarea>
+
+					<label for="count" class="form__label">Количество</label>
+					<input type="number" class="form__input" id="count" name="count">
+
+					<label for="cost" class="form__label">Цена</label>
+					<input type="number" class="form__input" id="cost" name="cost">
+				</fieldset>
+
+				<div class="form__button">
+					<button type="submit" class="form__btn">Добавить товар</button>
+				</div>
+				
+			</form>
+
+
+		</div>
+
+
+		</div>
+	</section>
+</body>
+</html>
