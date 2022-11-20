@@ -3,6 +3,17 @@
 	
 }
 
+.modal::before{
+	display: none;
+	content:"";
+	left:0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color:rgba(0, 0, 0, 0.2);
+	z-index: 100;
+}
 
 
 .modal__container {
@@ -12,17 +23,6 @@
 	min-height: 613px;
 	padding: 32px 106px 39px 106px;
 	position: relative;
-}
-
-.modal__container::before{
-	display: none;
-	content:"";
-	left:0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background-color:rgba(0, 0, 0, 0.2);
 }
 
 
