@@ -13,18 +13,3 @@ console.log(energy);
 
 
 
-
-// let games = ' ';
-
-// if(games === 'Playstation') {
-// 	console.log('Ты сонибой))');
-
-// } 
-
-// if(games === 'Xbox') {
-// 	console.log('Ты майкобой))');
-// }
-
-// if (games === ' '){
-// 	console.log('Ты бич');
-// }
