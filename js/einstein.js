@@ -12,6 +12,8 @@ console.log(energy);
 
 
 
+
+
 // let games = ' ';
 
 // if(games === 'Playstation') {

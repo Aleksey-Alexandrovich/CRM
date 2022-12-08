@@ -14,7 +14,7 @@
 }
 
 {
-	
+
 	const brand = prompt('Введите наименование товара:');
 	const count = +prompt('Введите количество товара:');
 	const category = prompt('Введите категорию товара:');
@@ -24,11 +24,24 @@
 	console.log(typeof +count);
 	console.log(typeof category);
 	console.log(typeof +price);
-	console.log(`На складе ${count} единицы товара ${brand} на сумму ${price} деревянных`);
+  console.log(`На складе ${count} единицы товара ${brand} на сумму ${price} деревянных`);
 
 }
 
+//Первая задача 4.3 
 
+{
+	const brand = prompt('Введите наименование товара:');
+	const count = +prompt('Введите количество товара:');
+	const category = prompt('Введите категорию товара:');
+	const price = +prompt('Введите цену товара:');
 
+	if(+count  &&  +price) {
+		console.log(`На складе ${count} единицы товара ${brand} на сумму ${price} деревянных`);
+	} else {
+		alert('Вы ввели некорректные данные');
+		
+	}	
+}
 
 
