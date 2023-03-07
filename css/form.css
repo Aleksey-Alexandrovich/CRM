@@ -3,7 +3,7 @@
 
 .modal {
 	padding: 100px 0px;
-	display: none;
+	display: flex;
 	
 }
 
