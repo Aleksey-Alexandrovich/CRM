@@ -13,3 +13,5 @@ const formCheckbox = document.querySelector('.form__checkbox'); // Чекбок�
 const formCheckboxField = document.querySelector('.form__iput--short'); //Поле рядом с чекбоксом
 
 const summaryCost = document.querySelector('.summary__cost'); //Итоговую стоимость
+
+// Вроде всё
