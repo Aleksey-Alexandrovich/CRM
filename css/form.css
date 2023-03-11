@@ -1,9 +1,7 @@
 
-
-
 .modal {
 	padding: 100px 0px;
-	display: flex;
+	display: none;
 	
 }
 
@@ -272,6 +270,11 @@
 	position: absolute;
 	top: 22px;
 	right: 22px;
+}
+
+.tools {
+	display: flex;
+	gap: 24px;
 }
 
 /*-----------------Адаптив-----------------------*/
