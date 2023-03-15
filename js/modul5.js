@@ -6,15 +6,14 @@ const summaryButtton = document.querySelector('.summary__button'); //Кнопк�
 const closeModal = document.querySelector('.modal__btn--button'); //Кнопка возле id и сам id -  Я только в этом сомневаюсь что за id и сам id ?
 
 
-const form = document.querySelector('.form'); // Форма
+
 
 const formCheckbox = document.querySelector('.form__checkbox'); // Чекбокс
 
 const formCheckboxField = document.querySelector('.form__iput--short'); //Поле рядом с чекбоксом
 
-const summaryCost = document.querySelector('.summary__cost'); //Итоговую стоимость
+const summaryCost = document.querySelector('.summary__cost'); //Итоговую стоимость*/
 
-// Вроде всё*/
 
 const  electronics = [
   {
@@ -79,7 +78,40 @@ const  electronics = [
 
 console.log(electronics)
 
+const form = document.querySelector('form'); // Форма
 const tbody = document.querySelector('.tbody');
+const modal = document.querySelector('.modal');
+const modalContainer = document.querySelector('.modal__container'); // Оболочка формы
+const buttonOpen = document.querySelector('.summary__button'); //  Кнопка добавить товар
+const buttonClose = document.querySelector('.modal__btn--button'); // Крестик закрывающий модалку
+
+
+buttonOpen.addEventListener('click', () => {
+	modal.classList.add('is-visible');
+});
+modalContainer.addEventListener('click', event => {
+	event.stopPropagation();
+});
+
+buttonClose.addEventListener('click', () => {
+	modal.classList.remove('is-visible');
+});
+
+
+modal.addEventListener('click', () => {
+	modal.classList.remove('is-visible');
+});
+
+
+
+// buttonClose.addEventListener('click', () => {
+// 	modal.classList.remove('is-visible');
+// });
+
+
+
+console.log(modal);
+
 
 const createRow = (object) => {
 
@@ -91,7 +123,7 @@ const createRow = (object) => {
 		<td class="table__cell">${object.units}</td>
 		<td class="table__cell">${object.count}</td>
 		<td class="table__cell">${"$" + object.price}</td>
-		<td class="table__cell">${"$" + object.count * object.price}</td>`
+		<td class="table__cell">${"$" + object.count * object.price}</td>`;
 		
 
 

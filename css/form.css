@@ -5,6 +5,10 @@
 	
 }
 
+.is-visible {
+	display: flex;
+}
+
 .modal__container {
 	
 	max-width: 792px;
