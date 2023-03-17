@@ -15,7 +15,7 @@ const formCheckboxField = document.querySelector('.form__iput--short'); //Пол
 const summaryCost = document.querySelector('.summary__cost'); //Итоговую стоимость*/
 
 
-const  electronics = [
+let  electronics = [
   {
     "id": 253842678,
     "title": "Смартфон Xiaomi 11T 8/128GB",
@@ -74,10 +74,6 @@ const  electronics = [
   }
 ]
 
-
-
-console.log(electronics)
-
 const form = document.querySelector('form'); // Форма
 const tbody = document.querySelector('.tbody');
 const modal = document.querySelector('.modal');
@@ -86,47 +82,42 @@ const buttonOpen = document.querySelector('.summary__button'); //  Кнопка 
 const buttonClose = document.querySelector('.modal__btn--button'); // Крестик закрывающий модалку
 
 
-buttonOpen.addEventListener('click', () => {
-	modal.classList.add('is-visible');
-});
-modalContainer.addEventListener('click', event => {
-	event.stopPropagation();
-});
-
-buttonClose.addEventListener('click', () => {
-	modal.classList.remove('is-visible');
-});
 
 
-modal.addEventListener('click', () => {
-	modal.classList.remove('is-visible');
-});
-
-
-
-// buttonClose.addEventListener('click', () => {
-// 	modal.classList.remove('is-visible');
-// });
 
 
 
 console.log(modal);
 
+const template = document.querySelector("#row")
 
 const createRow = (object) => {
-
-	let tr = document.createElement('tr'); // создаём <tr></tr>
+		const newCard = template.content.querySelector(".contact").cloneNode(true);
 
 		let row = `<td class="table__cell">${object.id}</td>
-		<td class="table__cell">${object.title}</td>
-		<td class="table__cell">${object.category}</td>
-		<td class="table__cell">${object.units}</td>
-		<td class="table__cell">${object.count}</td>
-		<td class="table__cell">${"$" + object.price}</td>
-		<td class="table__cell">${"$" + object.count * object.price}</td>`;
+		<td class="table__cell" data-number="1">${object.title}</td>
+		<td class="table__cell" data-number="2">${object.category}</td>
+		<td class="table__cell" data-number="3">${object.units}</td>
+		<td class="table__cell" data-number="4">${object.count}</td>
+		<td class="table__cell" data-number="5">${"$" + object.price}</td>
+		<td class="table__cell" data-number="6">${"$" + object.count * object.price}</td>`;
+
+		// newCard.prepend(row);
+		newCard.insertAdjacentHTML("afterbegin",row);
+		//
+		const buttonDelete = newCard.querySelector(".erase");
+
+		function deleteHandler () {
+			
+			electronics = electronics.filter(el => el.id !== object.id);
+			newCard.remove();
 		
-
-
+			console.log(electronics)
+		}
+		buttonDelete.addEventListener("click", deleteHandler);
+	
+		let tr = document.createElement('tr'); // создаём <tr></tr>
+	
 		const buttons = `<td class="tools">
 							<button type="button" class="downloading">
 								<svg width="20" height="20" viewbox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="svg-color">
@@ -148,7 +139,7 @@ const createRow = (object) => {
 								</svg>
 								
 						</button>
-						<button type="button" class="erase">
+						<button type="button" class="erase"  >
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M7.03125 3.59375H6.875C6.96094 3.59375 7.03125 3.52344 7.03125 3.4375V3.59375H12.9688V3.4375C12.9688 3.52344 13.0391 3.59375 13.125 3.59375H12.9688V5H14.375V3.4375C14.375 2.74805 13.8145 2.1875 13.125 2.1875H6.875C6.18555 2.1875 5.625 2.74805 5.625 3.4375V5H7.03125V3.59375ZM16.875 5H3.125C2.7793 5 2.5 5.2793 2.5 5.625V6.25C2.5 6.33594 2.57031 6.40625 2.65625 6.40625H3.83594L4.31836 16.6211C4.34961 17.2871 4.90039 17.8125 5.56641 17.8125H14.4336C15.1016 17.8125 15.6504 17.2891 15.6816 16.6211L16.1641 6.40625H17.3438C17.4297 6.40625 17.5 6.33594 17.5 6.25V5.625C17.5 5.2793 17.2207 5 16.875 5ZM14.2832 16.4062H5.7168L5.24414 6.40625H14.7559L14.2832 16.4062Z" fill="#6E6893"/>
 						</svg>
@@ -159,8 +150,25 @@ const createRow = (object) => {
 						row += buttons;
 
 						tr.insertAdjacentHTML("afterbegin",row);
+						tr.classList.add('contact');
+						tr.dataset.removeElement = JSON.stringify(object);
+						const deleteObj = JSON.parse(tr.dataset.removeElement);
+					
 
-	return tr;
+						buttonOpen.addEventListener('click', () => { // Открытие модального окна при помощи обычной кнопки
+							modal.classList.add('is-visible');
+						
+						});
+						
+						modal.addEventListener('click', (e) => { // Ставим прослушку на модальное окно, и ловим событие на нём или крестике на модалке, и закрываем окно.
+							const target = e.target;
+							if (target === modal || target.closest('.modal__btn--button')) {
+									modal.classList.remove('is-visible');								
+							}
+						});
+						
+
+	return newCard;
 
 };
 
@@ -169,7 +177,9 @@ const createRow = (object) => {
 const renderGoods = (array) => {
 	const tableRows = array.map(row => createRow(row));
 	tbody.append(...tableRows);
-
+	
 }
+
+
 
 renderGoods(electronics)
