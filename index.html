@@ -156,6 +156,7 @@
     </div>
 
     <!--Модальное окно------------------------------------------------------------------->
+
     <section class="modal">
       <tr>
         <div class="modal__container">
@@ -195,7 +196,7 @@
                       type="text"
                       class="form__input"
                       id="name"
-                      name="name"
+                      name="title"
                       required
                     />
                   </div>
@@ -205,7 +206,7 @@
                       type="text"
                       class="form__input"
                       id="category"
-                      name="units"
+                      name="category"
                       required
                     />
                   </div>
@@ -229,6 +230,7 @@
                       type="checkbox"
                       class="form__checkbox"
                       value="Дисконт"
+                      name="flag"
                     />
                     <input
                       type="text"
@@ -266,7 +268,7 @@
                       type="number"
                       class="form__input"
                       id="cost"
-                      name="cost"
+                      name="price"
                     />
                   </div>
                   <div class="form__item addfile">
@@ -282,9 +284,9 @@
               <div class="summary">
                 <div class="summary__text">
                   Итоговая стоимость:
-                  <span class="summary__cost">$ 900.00</span>
+                  <span class="summary__cost" name="summary"></span>
                 </div>
-                <button type="button" class="summary__button">
+                <button type="submit" class="summary__button">
                   Добавить товар
                 </button>
               </div>
