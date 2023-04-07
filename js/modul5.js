@@ -4,11 +4,11 @@ import electronicsObj from './data.js';
 const {getSum,  deleteItem,  addItem, electronics } = electronicsObj;
 
 
-const { form, tbody, modal, modalContainer, buttonOpen, buttonClose, templateModal, template, summary__cost } = elements;
+const { form, tbody, modal, modalContainer, buttonOpen, buttonClose, templateModal, template, summary__cost,} = elements;
 
-const {title, units, category, flag, discount, description, count, price} = form; // находим элементы формы по атрибуту name=""
+const {title, units, category, flag, discount, description, count, price} = form;
 
- 
+
 const createSpan = () => { // Cоздаём спан с рандомным id
   const span = document.createElement('span');
   span.className = 'vendor-code__id';
@@ -83,16 +83,24 @@ const modalControl = (buttonOpen, modal) => {
 function createRowModal (object) {
   const newCard = template.content.querySelector('.contact').cloneNode(true);
 
+	const randomImage = `https://picsum.photos/600/600`;
+
   let row = `<td class="table__cell">${object.id}</td>
-		<td class="table__cell" data-number="1">${object.title}</td>
-		<td class="table__cell" data-number="2">${object.category}</td>
-		<td class="table__cell" data-number="3">${object.units}</td>
-		<td class="table__cell" data-number="4">${object.count}</td>
-		<td class="table__cell" data-number="5">${'$' + object.price}</td>
-		<td class="table__cell" data-number="6">${'$' + object.count * object.price}</td>`;
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${object.title}</td>
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${object.category}</td>
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${object.units}</td>
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${object.count}</td>
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${'$' + object.price}</td>
+		<td class="table__cell" data-pic="https://picsum.photos/600/600">${'$' + object.count * object.price}</td>`;
 
   newCard.insertAdjacentHTML('afterbegin', row);
   const buttonDelete = newCard.querySelector('.erase');
+	// находим кнопку загрузить изображение
+	const getPicture = newCard.querySelector('.downloading');
+
+	getPicture.addEventListener('click', () => {
+		open('https://picsum.photos/600/600','', 'width=600,height=600,top=270,left=640');
+	})
 
   function deleteHandler() {
     newCard.remove();

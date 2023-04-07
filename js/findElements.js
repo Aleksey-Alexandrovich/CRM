@@ -8,4 +8,5 @@ const templateModal = document.querySelector('#rowModal');
 const template = document.querySelector('#row');
 const summary__cost = document.querySelector(".summary__cost");
 
-export default { form, tbody, modal, modalContainer, buttonOpen, buttonClose, templateModal, template, summary__cost };
+
+export default { form, tbody, modal, modalContainer, buttonOpen, buttonClose, templateModal, template, summary__cost};
